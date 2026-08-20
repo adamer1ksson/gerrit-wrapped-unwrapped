@@ -53,7 +53,8 @@ function Index() {
         <section className="mt-10 grid gap-5">
           {numericMetrics.map((metric, i) => {
             const ranked = [...users].sort((a, b) => b[metric.key] - a[metric.key]);
-            const max = ranked[0][metric.key];
+            const top = ranked[0]!;
+            const max = top[metric.key];
             return (
               <article
                 key={metric.key}
@@ -68,7 +69,7 @@ function Index() {
                     className="shrink-0 rounded-full px-2.5 py-1 text-xs font-bold text-background"
                     style={{ background: accentVar[metric.accent] }}
                   >
-                    👑 {ranked[0].name}
+                    👑 {top.name}
                   </span>
                 </div>
                 <ul className="mt-4 grid gap-3">
