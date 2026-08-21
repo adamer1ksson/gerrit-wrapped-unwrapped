@@ -94,3 +94,11 @@ export const getUser = (name: string) =>
   users.find((u) => u.name.toLowerCase() === name.toLowerCase());
 
 export const formatNumber = (n: number) => n.toLocaleString("en-US");
+
+// Text metrics are stored as "<count> <label>" (e.g. "89 [AI:H]").
+// Split them so the UI can show the label big and the count as a small badge.
+export const parseCounted = (value: string): { count: string | null; label: string } => {
+  const m = value.match(/^(\d+)\s+(.*)$/s);
+  if (!m) return { count: null, label: value };
+  return { count: m[1]!, label: m[2]! };
+};

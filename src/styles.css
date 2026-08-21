@@ -192,3 +192,70 @@
     letter-spacing: -0.03em;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Spotify-Wrapped-style story player
+ * ------------------------------------------------------------------------- */
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(28px) scale(0.9); }
+  60% { transform: translateY(0) scale(1.04); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, -5%) scale(1.12); }
+}
+
+@keyframes seg-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Full-viewport story stage */
+@utility story-stage {
+  position: relative;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Big floating blobs behind slide content for depth */
+@utility story-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: blob-float 9s ease-in-out infinite;
+}
+
+@utility animate-pop {
+  animation: pop-in 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.2) both;
+}
+
+@utility animate-slide-up {
+  animation: slide-up 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Progress segment that animates its fill on the active slide */
+@utility seg-active {
+  animation: seg-fill 5s linear forwards;
+}
+
+/* Shareable summary card sheen */
+@utility share-card {
+  background:
+    radial-gradient(120% 90% at 100% 0%, oklch(0.72 0.23 350 / 0.5), transparent 55%),
+    radial-gradient(120% 90% at 0% 100%, oklch(0.82 0.15 210 / 0.45), transparent 55%),
+    linear-gradient(160deg, oklch(0.2 0.03 300), oklch(0.13 0.02 300));
+  border: 1px solid oklch(1 0 0 / 0.14);
+}
