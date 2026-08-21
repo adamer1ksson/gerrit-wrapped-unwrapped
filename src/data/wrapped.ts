@@ -8,7 +8,6 @@ export type UserStats = {
   commits: number;
   merges: number;
   linesAdded: number;
-  reviews: number;
   mostEditedFile: string;
   mostUsedAiTag: string;
   mostTargetedJiraTicket: string;
@@ -17,57 +16,52 @@ export type UserStats = {
 export const users: UserStats[] = [
   {
     name: "Adam",
-    commits: 412,
-    merges: 168,
-    linesAdded: 38420,
-    reviews: 231,
-    mostEditedFile: "src/core/scheduler.ts",
-    mostUsedAiTag: "ai-assisted",
-    mostTargetedJiraTicket: "PLAT-1042",
+    commits: 92,
+    merges: 43,
+    linesAdded: 101635,
+    mostEditedFile: "14 chatbot/frontend/src/main.js",
+    mostUsedAiTag: "77 [AI:H]",
+    mostTargetedJiraTicket: "22 PRARAP-47",
   },
   {
     name: "Christian",
-    commits: 287,
-    merges: 201,
-    linesAdded: 51230,
-    reviews: 189,
-    mostEditedFile: "services/auth/handler.go",
-    mostUsedAiTag: "ai-generated",
-    mostTargetedJiraTicket: "AUTH-318",
+    commits: 110,
+    merges: 22,
+    linesAdded: 278375,
+    mostEditedFile: "13 README.md",
+    mostUsedAiTag: "49 [AI:H]",
+    mostTargetedJiraTicket: "23 PRARAP-44",
   },
   {
     name: "Nima",
-    commits: 523,
-    merges: 142,
-    linesAdded: 27890,
-    reviews: 344,
-    mostEditedFile: "src/ui/Dashboard.tsx",
-    mostUsedAiTag: "ai-reviewed",
-    mostTargetedJiraTicket: "WEB-2207",
+    commits: 92,
+    merges: 20,
+    linesAdded: 86379,
+    mostEditedFile: "10 chatbot/frontend/src/main.js",
+    mostUsedAiTag: "66 [AI:H]",
+    mostTargetedJiraTicket: "26 PRARAP-47",
   },
   {
     name: "Dilan",
-    commits: 198,
-    merges: 96,
-    linesAdded: 64110,
-    reviews: 127,
-    mostEditedFile: "infra/terraform/main.tf",
-    mostUsedAiTag: "no-ai",
-    mostTargetedJiraTicket: "INFRA-77",
+    commits: 37,
+    merges: 1,
+    linesAdded: 6264,
+    mostEditedFile: "17 frontend/src/views/project/SwatDashboardPage.vue",
+    mostUsedAiTag: "23 [AI:H]",
+    mostTargetedJiraTicket: "19 ONECI-63",
   },
   {
     name: "Theo",
-    commits: 341,
-    merges: 233,
-    linesAdded: 19075,
-    reviews: 402,
-    mostEditedFile: "packages/api/client.ts",
-    mostUsedAiTag: "ai-assisted",
-    mostTargetedJiraTicket: "API-905",
+    commits: 65,
+    merges: 3,
+    linesAdded: 585169,
+    mostEditedFile: "14 .kiro/prompts/setup.md",
+    mostUsedAiTag: "41 [AI:H]",
+    mostTargetedJiraTicket: "3 ONECI-18",
   },
 ];
 
-export type NumericMetricKey = "commits" | "merges" | "linesAdded" | "reviews";
+export type NumericMetricKey = "commits" | "merges" | "linesAdded";
 export type TextMetricKey =
   | "mostEditedFile"
   | "mostUsedAiTag"
@@ -81,7 +75,6 @@ export const numericMetrics: {
   { key: "commits", label: "Commits", accent: "lime" },
   { key: "merges", label: "Merges", accent: "pink" },
   { key: "linesAdded", label: "Lines added", accent: "sky" },
-  { key: "reviews", label: "Reviews made", accent: "amber" },
 ];
 
 export const textMetrics: { key: TextMetricKey; label: string }[] = [
