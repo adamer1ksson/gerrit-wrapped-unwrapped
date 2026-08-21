@@ -24,9 +24,9 @@ export const Route = createFileRoute("/u/$user")({
     const title = `${loaderData.user.name}'s Gerrit Wrapped 2026`;
     const description = `${loaderData.user.name} landed ${formatNumber(
       loaderData.user.commits,
-    )} commits, ${formatNumber(loaderData.user.merges)} merges and ${formatNumber(
+    )} commits, ${formatNumber(loaderData.user.merges)} merges, ${formatNumber(
       loaderData.user.linesAdded,
-    )} lines added this year.`;
+    )} lines added and ${formatNumber(loaderData.user.reviewsMade)} reviews this year.`;
     return {
       meta: [
         { title },
